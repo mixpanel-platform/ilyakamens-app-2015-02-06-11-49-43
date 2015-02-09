@@ -11,24 +11,13 @@
     <div id="dateSelect" style="float: right"></div>
     <div style="clear: both;"></div>
     <div id="graph" style="margin-bottom: 10px;"></div>
-    <div id="graph1" style="margin-bottom: 10px;"></div>
-    <div id="graph2" style="margin-bottom: 10px;"></div>
-    <div id="graph3" style="margin-bottom: 10px;"></div>
-    <div id="graph4" style="margin-bottom: 10px;"></div>
-    <div id="graph5" style="margin-bottom: 10px;"></div>
     <div id="table"></div>
-    lwejf nwekufb wefkuwb efkuwb fkwebf wk
     <script>
       MP.api.ready(function() {
         var eventSelect = $('#eventSelect').MPEventSelect();
         var propSelect  = $('#propSelect').MPPropertySelect();
         var dateSelect  = $('#dateSelect').MPDatepicker();
         var eventGraph  = $('#graph').MPChart({chartType: 'line'});
-        var eventGraph1  = $('#graph1').MPChart({chartType: 'line'});
-        var eventGraph2  = $('#graph2').MPChart({chartType: 'line'});
-        var eventGraph3  = $('#graph3').MPChart({chartType: 'line'});
-        var eventGraph4  = $('#graph4').MPChart({chartType: 'line'});
-        var eventGraph5  = $('#graph5').MPChart({chartType: 'line'});
         var eventTable  = $('#table').MPTable();
 
         var runQuery = function() {
@@ -39,11 +28,6 @@
           if (eventName) {
             MP.api.segment(eventName, propName, dateRange).done(function(results) {
               eventGraph.MPChart('setData', results);
-              eventGraph1.MPChart('setData', results);
-              eventGraph2.MPChart('setData', results);
-              eventGraph3.MPChart('setData', results);
-              eventGraph4.MPChart('setData', results);
-              eventGraph5.MPChart('setData', results);
               eventTable.MPTable('setData', results);
             });
           }
